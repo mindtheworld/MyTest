@@ -36,21 +36,17 @@ namespace GildedRose.Tests
             const int expectedSellin = 9;
             const int expectedQuality = 19;
 
-            var app = new Program()
+            var items = new List<Item>
             {
-                Items = new List<Item>
-                {
-                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-
-                }
+                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
 
             };
 
             // act
-            app.UpdateQuality();
+            Program.UpdateQuality(items);
 
             // assert
-            var itemToCheck = app.Items[0];
+            var itemToCheck = items[0];
             Assert.Equal(itemToCheck.Name, expectedName);
             Assert.Equal(itemToCheck.SellIn, expectedSellin);
             Assert.Equal(itemToCheck.Quality, expectedQuality);
