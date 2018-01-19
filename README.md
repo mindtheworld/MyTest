@@ -46,4 +46,5 @@ Quality is 80 and it never alters.
 
 ## Getting Started
 - Check solution files. 
+- Move out Item to its own class. (Not allowed to touch)
 
