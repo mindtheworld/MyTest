@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseInn
 {
-    public sealed class ConjuredItem : NormalItem
+    public sealed class ConjuredItem : AbstractItem
     {
         public ConjuredItem(int sellIn, int quality) : base("Conjured Mana Cake", sellIn, quality)
         {

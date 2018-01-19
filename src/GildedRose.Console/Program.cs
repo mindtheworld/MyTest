@@ -9,7 +9,7 @@ namespace GildedRose.Console
         {
             System.Console.WriteLine("Updating Inventory...");
 
-            var items = new List<NormalItem>
+            var items = new List<AbstractItem>
             {
                 new NormalItem("+5 Dexterity Vest", 10, 20),
                 new AgedBrieItem(2,0),

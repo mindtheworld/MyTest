@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseInn
 {
-    public sealed class SulfurasItem : NormalItem
+    public sealed class SulfurasItem : AbstractItem
     {
         public SulfurasItem() : base("Sulfuras, Hand of Ragnaros", 0, 80, isSpeical:true)
         {

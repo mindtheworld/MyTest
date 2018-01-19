@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseInn
 {
-    public sealed class AgedBrieItem : NormalItem
+    public sealed class AgedBrieItem : AbstractItem
     {
         public AgedBrieItem(int sellIn, int quality) : base("Aged Brie", sellIn, quality)
         {

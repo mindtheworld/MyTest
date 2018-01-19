@@ -8,6 +8,8 @@
 	- Introducing IOperation interface and NormalItem class to manage the most common scenario.
 	- Other speical classes are derived from NormalItem, override UpdateQuality method to meet the requirments. 
 - Add logic to validate user input. (Quality is between 0 and 50, Name can't be empty)
+- Add one more level of abstraction by introducing AbstractItem class. 
+
 
 ## Todo:
 - Logging?

@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseInn
 {
-    public sealed class BackstagePassesItem : NormalItem
+    public sealed class BackstagePassesItem : AbstractItem
     {
         public BackstagePassesItem(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn,
             quality)

@@ -5,19 +5,17 @@ namespace GildedRoseInn
 {
     public class Inventory
     {
-        private IList<NormalItem> Items { get; }
+        private IList<AbstractItem> Items { get; }
 
-        public Inventory(IList<NormalItem> items)
+        public Inventory(IList<AbstractItem> items)
         {
             Items = items;
         }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var currentItem in Items)
             {
-                var currentItem = Items[i];
-
                 Console.WriteLine("Before:\t"+ currentItem);
 
                 currentItem.UpdateQuality();
