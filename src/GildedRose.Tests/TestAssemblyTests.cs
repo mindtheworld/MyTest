@@ -42,8 +42,10 @@ namespace GildedRose.Tests
 
             };
 
+            var testInventory = new Inventory(items);
+
             // act
-            Program.UpdateQuality(items);
+            testInventory.UpdateQuality();
 
             // assert
             var itemToCheck = items[0];
