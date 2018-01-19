@@ -44,9 +44,16 @@ Just for clarification, an item can never have its Quality increase
 above 50, however "Sulfuras" is a legendary item and as such its 
 Quality is 80 and it never alters.
 
-## Getting Started
+## Notes during refactoring:
 - Check solution files. 
-- Move out Item to its own class. (Not allowed to touch)
+- Move out Item into its own class. (Not allowed to touch)
 - Tidy up a bit in Main.
-- Before touching main business logic, analysing the code by writing unit tests. (Build a safe net)
+- Before touching main business logic, analysing the code by writing unit tests. (Build a safety net)
+- Based on unit tests, doing code refactoring.
+-- Introducing IOperation interface and NormalItem class to manage the most common scenario.
+-- Other speical classes are derived from NormalItem, override UpdateQuality method to meet the requirments. 
+
+## Todo:
+- Logging?
+
 

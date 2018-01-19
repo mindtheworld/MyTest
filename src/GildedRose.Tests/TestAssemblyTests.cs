@@ -35,16 +35,10 @@ namespace GildedRose.Tests
             const int expectedSellIn = 9;
             const int expectedQuality = 19;
 
-            var items = new List<Item>
-            {
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-            };
-
-            var testInventory = new Inventory(items);
+            var itemToCheck = new NormalItem(name: "+5 Dexterity Vest", sellIn: 10, quality: 20);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -62,16 +56,10 @@ namespace GildedRose.Tests
             const int expectedSellIn = -1;
             const int expectedQuality = 18;
 
-            var items = new List<Item>
-            {
-                new Item {Name = "+5 Dexterity Vest", SellIn = 0, Quality = 20},
-            };
-
-            var testInventory = new Inventory(items);
+            var itemToCheck = new NormalItem(name: "+5 Dexterity Vest", sellIn: 0, quality: 20);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -90,18 +78,12 @@ namespace GildedRose.Tests
         {
             // arrange
             var expectedName = name;
-
-            var items = new List<Item>
-            {
-                new Item {Name = name, SellIn = sellIn, Quality = quality}
-            };
-
-            var testInventory = new Inventory(items);
             var expectedSellIn = sellIn - 1;
 
+            var itemToCheck = new NormalItem(name: name, sellIn: sellIn, quality: quality);
+
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -119,16 +101,11 @@ namespace GildedRose.Tests
             const int expectedSellIn = 1;
             const int expectedQuality = 1;
 
-            var items = new List<Item>
-            {
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0}
-            };
 
-            var testInventory = new Inventory(items);
+            var itemToCheck = new AgedBrieItem(sellIn: 2, quality: 0);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -147,16 +124,10 @@ namespace GildedRose.Tests
             const int expectedSellIn = -1;
             const int expectedQuality = 4;
 
-            var items = new List<Item>
-            {
-                new Item {Name = "Aged Brie", SellIn = 0, Quality = 2}
-            };
-
-            var testInventory = new Inventory(items);
+            var itemToCheck = new AgedBrieItem(sellIn: 0, quality: 2);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -175,56 +146,19 @@ namespace GildedRose.Tests
         {
             // arrange
             const string expectedName = "Aged Brie";
-
-            var items = new List<Item>
-            {
-                new Item {Name = "Aged Brie", SellIn = sellIn, Quality = quality}
-            };
-
             var expectedSellIn = sellIn - 1;
             const int expectedQuality = 50;
 
-            var testInventory = new Inventory(items);
+            var itemToCheck = new AgedBrieItem(sellIn: sellIn, quality: quality);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
             Assert.Equal(expectedSellIn, itemToCheck.SellIn);
             Assert.Equal(expectedQuality, itemToCheck.Quality);
         }
-
-
-        //- "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
-        //- however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
-        [Theory]
-        [InlineData(0, 80)] //output: 0,80
-        [InlineData(10, 80)] //output: -1,80
-        [InlineData(-1, 80)] //output: -1,80
-        public void TestSulfurasNeverAlters(int sellIn, int quality)
-        {
-            // arrange
-            const string expectedName = "Sulfuras, Hand of Ragnaros";
-
-            var items = new List<Item>
-            {
-                new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = quality}
-            };
-
-            var testInventory = new Inventory(items);
-
-            // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
-
-            // assert
-            Assert.Equal(expectedName, itemToCheck.Name);
-            Assert.Equal(sellIn, itemToCheck.SellIn);
-            Assert.Equal(quality, itemToCheck.Quality);
-        }
-
 
         //- "Backstage passes", like aged brie, increases in Quality as it's SellIn value approaches; 
         //Quality increases by 2 when there are 10 days or less 
@@ -239,25 +173,13 @@ namespace GildedRose.Tests
         {
             // arrange
             const string expectedName = "Backstage passes to a TAFKAL80ETC concert";
-
-            var items = new List<Item>
-            {
-                new Item
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = sellIn,
-                    Quality = quality
-                }
-            };
-
-            var testInventory = new Inventory(items);
-
             var expectedSellIn = sellIn - 1;
 
-            // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            var itemToCheck = new BackstagePassesItem(sellIn: sellIn, quality: quality);
 
+            // act
+            itemToCheck.UpdateQuality();
+           
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
             Assert.Equal(expectedSellIn, itemToCheck.SellIn);
@@ -267,17 +189,14 @@ namespace GildedRose.Tests
             if (sellIn > 10)
             {
                 expectedQuality = quality + 1;
-              
             }
             else if (sellIn > 5 && sellIn <= 10)
             {
                 expectedQuality = quality + 2;
-               
             }
             else if (sellIn > 0 && sellIn <= 5)
             {
                 expectedQuality = quality + 3;
-                
             }
             else
             {
@@ -298,20 +217,13 @@ namespace GildedRose.Tests
         {
             // arrange
             const string expectedName = "Backstage passes to a TAFKAL80ETC concert";
-
-            var items = new List<Item>
-            {
-                new Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality}
-            };
-
             var expectedSellIn = sellIn - 1;
             const int expectedQuality = 50;
 
-            var testInventory = new Inventory(items);
+            var itemToCheck = new BackstagePassesItem(sellIn: sellIn, quality: quality);
 
             // act
-            testInventory.UpdateQuality();
-            var itemToCheck = items[0];
+            itemToCheck.UpdateQuality();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -320,44 +232,58 @@ namespace GildedRose.Tests
         }
 
 
+        //- "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+        //- however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
+        // SellIn==0, Quality==80 always true.
+        [Theory]
+        [InlineData(0, 80)] //output: 0,80
+        public void TestSulfurasNeverAlters(int sellIn, int quality)
+        {
+            // arrange
+            const string expectedName = "Sulfuras, Hand of Ragnaros";
+
+            var itemToCheck = new SulfurasItem();
+
+            // act
+            itemToCheck.UpdateQuality();
+
+            // assert
+            Assert.Equal(expectedName, itemToCheck.Name);
+            Assert.Equal(sellIn, itemToCheck.SellIn);
+            Assert.Equal(quality, itemToCheck.Quality);
+        }
+
 
         //- "Conjured" items degrade in Quality twice as fast as normal items 
         // SellIn>0? (SellIn--, Quality-=2): (SellIn--, Quality-=4)
-        //[Theory]
-        //[InlineData(3, 6)] //output: 2, 4
-        //[InlineData(0, 20)] //output: -1, 16
-        //public void TestConjuredManaCake(int sellIn, int quality)
-        //{
-        //    // arrange
-        //    const string expectedName = "Conjured Mana Cake";
+        [Theory]
+        [InlineData(3, 6)] //output: 2, 4
+        [InlineData(0, 20)] //output: -1, 16
+        public void TestConjuredManaCake(int sellIn, int quality)
+        {
+            // arrange
+            const string expectedName = "Conjured Mana Cake";
+            var expectedSellin = sellIn - 1;
 
-        //    var items = new List<Item>
-        //    {
-        //        new Item {Name = "Conjured Mana Cake", SellIn = sellIn, Quality = quality}
-        //    };
+            var itemToCheck = new ConjuredItem(sellIn:sellIn, quality:quality);
 
-        //    var expectedSellin = sellIn - 1;
+            // act
+            itemToCheck.UpdateQuality();
 
-        //    var testInventory = new Inventory(items);
+            // assert
+            Assert.Equal(expectedName, itemToCheck.Name);
+            Assert.Equal(expectedSellin, itemToCheck.SellIn);
 
-        //    // act
-        //    testInventory.UpdateQuality();
-        //    var itemToCheck = items[0];
-
-        //    // assert
-        //    Assert.Equal(expectedName, itemToCheck.Name);
-        //    Assert.Equal(expectedSellin, itemToCheck.SellIn);
-
-        //    if (sellIn > 0)
-        //    {
-        //        var expectedQuality = quality - 2;
-        //        Assert.Equal(expectedQuality, itemToCheck.Quality);
-        //    }
-        //    else
-        //    {
-        //        var expectedQuality = quality - 4;
-        //        Assert.Equal(expectedQuality, itemToCheck.Quality);
-        //    }
-        //}
+            if (sellIn > 0)
+            {
+                var expectedQuality = quality - 2;
+                Assert.Equal(expectedQuality, itemToCheck.Quality);
+            }
+            else
+            {
+                var expectedQuality = quality - 4;
+                Assert.Equal(expectedQuality, itemToCheck.Quality);
+            }
+        }
     }
 }

@@ -7,38 +7,26 @@ namespace GildedRose.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello World!");
+            System.Console.WriteLine("Updating Inventory...");
 
-            var a = 3;
-
-            a -= 2;
-
-            System.Console.WriteLine(a);
-
-            var items = new List<Item>
+            var items = new List<NormalItem>
             {
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                new Item
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                new NormalItem("+5 Dexterity Vest", 10, 20),
+                new AgedBrieItem(2,0),
+                new NormalItem("Elixir of the Mongoose", 5, 7),
+                new SulfurasItem(),
+                new BackstagePassesItem(15,20),
+                new NormalItem("Conjured Mana Cake", 3, 6)
             };
 
             var myInventory= new Inventory(items);
 
             myInventory.UpdateQuality();
 
+            System.Console.WriteLine("Updating Completed.");
+
             System.Console.ReadKey();
 
         }
-
-      
-
     }
 }
