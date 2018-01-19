@@ -1,3 +1,18 @@
+
+## My Refactoring steps: (For details, please referece github commits)
+- Check solution files. 
+- Move out Item into its own class. (Not allowed to touch)
+- Tidy up a bit in Main method.
+- Before touching main business logic, analysing the code by writing unit tests. (Build a safety net)
+- Based on unit tests, doing code refactoring.
+-- Introducing IOperation interface and NormalItem class to manage the most common scenario.
+-- Other speical classes are derived from NormalItem, override UpdateQuality method to meet the requirments. 
+- Add logic to validate user input. (Quality is between 0 and 50, Name can't be empty)
+
+## Todo:
+- Logging?
+
+
 # Gilded Rose Refactoring Kata
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a 
@@ -43,17 +58,3 @@ method and Items property static if you like, we'll cover for you).
 Just for clarification, an item can never have its Quality increase 
 above 50, however "Sulfuras" is a legendary item and as such its 
 Quality is 80 and it never alters.
-
-## Notes during refactoring:
-- Check solution files. 
-- Move out Item into its own class. (Not allowed to touch)
-- Tidy up a bit in Main.
-- Before touching main business logic, analysing the code by writing unit tests. (Build a safety net)
-- Based on unit tests, doing code refactoring.
--- Introducing IOperation interface and NormalItem class to manage the most common scenario.
--- Other speical classes are derived from NormalItem, override UpdateQuality method to meet the requirments. 
-
-## Todo:
-- Logging?
-
-

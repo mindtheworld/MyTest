@@ -2,7 +2,7 @@
 {
     public sealed class SulfurasItem : NormalItem
     {
-        public SulfurasItem() : base("Sulfuras, Hand of Ragnaros", 0, 80)
+        public SulfurasItem() : base("Sulfuras, Hand of Ragnaros", 0, 80, isSpeical:true)
         {
         }
 

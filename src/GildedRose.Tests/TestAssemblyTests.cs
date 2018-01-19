@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using GildedRose.Console;
@@ -179,7 +180,7 @@ namespace GildedRose.Tests
 
             // act
             itemToCheck.UpdateQuality();
-           
+
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
             Assert.Equal(expectedSellIn, itemToCheck.SellIn);
@@ -265,7 +266,7 @@ namespace GildedRose.Tests
             const string expectedName = "Conjured Mana Cake";
             var expectedSellin = sellIn - 1;
 
-            var itemToCheck = new ConjuredItem(sellIn:sellIn, quality:quality);
+            var itemToCheck = new ConjuredItem(sellIn: sellIn, quality: quality);
 
             // act
             itemToCheck.UpdateQuality();
@@ -284,6 +285,45 @@ namespace GildedRose.Tests
                 var expectedQuality = quality - 4;
                 Assert.Equal(expectedQuality, itemToCheck.Quality);
             }
+        }
+
+
+        //Throw exception when empty name is provided. 
+        [Fact]
+        public void TestNameIsEmpty()
+        {
+            // arrange
+
+            var expectedErrorMessage = "Name can't be empty";
+
+            // act
+            Exception ex = Assert.Throws<ArgumentException>(() =>
+            {
+                var itemToCheck = new NormalItem("", 1, 2);
+            });
+
+            // assert
+            Assert.Equal(expectedErrorMessage, ex.Message);
+        }
+
+        //Ensure Quality is between 0 and 50 for NormalItem.
+        [Theory]
+        [InlineData(-11)]
+        [InlineData(66)]
+        public void TestQualityIsBetweenZeroAndFifty(int quality)
+        {
+            // arrange
+
+            var expectedErrorMessage = "Quality can't be negative Or great than 50";
+
+            // act
+            Exception ex = Assert.Throws<ArgumentException>(() =>
+            {
+                var itemToCheck = new NormalItem("Test", 10, quality);
+            });
+
+            // assert
+            Assert.Equal(expectedErrorMessage, ex.Message);
         }
     }
 }
