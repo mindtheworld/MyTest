@@ -9,6 +9,12 @@ namespace GildedRose.Console
         {
             System.Console.WriteLine("Hello World!");
 
+            var a = 3;
+
+            a -= 2;
+
+            System.Console.WriteLine(a);
+
             var items = new List<Item>
             {
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},

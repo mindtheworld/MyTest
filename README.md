@@ -48,4 +48,5 @@ Quality is 80 and it never alters.
 - Check solution files. 
 - Move out Item to its own class. (Not allowed to touch)
 - Tidy up a bit in Main.
+- Before touching main business logic, analysing the code by writing unit tests. (Build a safe net)
 
