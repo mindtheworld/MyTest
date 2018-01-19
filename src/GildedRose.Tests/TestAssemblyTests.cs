@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GildedRose.Console;
+using GildedRoseInn;
 using Xunit;
 using Xunit.Abstractions;
 

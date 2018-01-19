@@ -67,6 +67,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GildedRoseInn\GildedRoseInn.csproj">
+      <Project>{bd952647-3a8a-4f04-82ef-e5fcde5248fb}</Project>
+      <Name>GildedRoseInn</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GildedRose.Console\GildedRose.Console.csproj">
       <Project>{F2E879A9-7F1C-4C34-AB0D-2662F9815046}</Project>
       <Name>GildedRose.Console</Name>
