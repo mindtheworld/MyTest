@@ -39,7 +39,7 @@ namespace GildedRose.Tests
             var itemToCheck = new NormalItem(name: "+5 Dexterity Vest", sellIn: 10, quality: 20);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -60,7 +60,7 @@ namespace GildedRose.Tests
             var itemToCheck = new NormalItem(name: "+5 Dexterity Vest", sellIn: 0, quality: 20);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -84,7 +84,7 @@ namespace GildedRose.Tests
             var itemToCheck = new NormalItem(name: name, sellIn: sellIn, quality: quality);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -106,7 +106,7 @@ namespace GildedRose.Tests
             var itemToCheck = new AgedBrieItem(sellIn: 2, quality: 0);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -128,7 +128,7 @@ namespace GildedRose.Tests
             var itemToCheck = new AgedBrieItem(sellIn: 0, quality: 2);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -153,7 +153,7 @@ namespace GildedRose.Tests
             var itemToCheck = new AgedBrieItem(sellIn: sellIn, quality: quality);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -179,7 +179,7 @@ namespace GildedRose.Tests
             var itemToCheck = new BackstagePassesItem(sellIn: sellIn, quality: quality);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -224,7 +224,7 @@ namespace GildedRose.Tests
             var itemToCheck = new BackstagePassesItem(sellIn: sellIn, quality: quality);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -246,7 +246,7 @@ namespace GildedRose.Tests
             var itemToCheck = new SulfurasItem();
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);
@@ -269,7 +269,7 @@ namespace GildedRose.Tests
             var itemToCheck = new ConjuredItem(sellIn: sellIn, quality: quality);
 
             // act
-            itemToCheck.UpdateQuality();
+            itemToCheck.Update();
 
             // assert
             Assert.Equal(expectedName, itemToCheck.Name);

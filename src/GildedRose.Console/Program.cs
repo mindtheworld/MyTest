@@ -16,7 +16,7 @@ namespace GildedRose.Console
                 new NormalItem("Elixir of the Mongoose", 5, 7),
                 new SulfurasItem(),
                 new BackstagePassesItem(15,20),
-                new NormalItem("Conjured Mana Cake", 3, 6)
+                new ConjuredItem(3, 6)
             };
 
             var myInventory= new Inventory(items);

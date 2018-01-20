@@ -1,18 +1,22 @@
 
-## My Refactoring steps: (For details, please referece github commits)
+## My Refactoring steps: (For details, please referece each commits in github)
 - Check solution files. 
 - Move out Item into its own class. (Not allowed to touch)
 - Tidy up a bit in Main method.
-- Before touching main business logic, analysing the code by writing unit tests. (Build a safety net)
-- Based on unit tests, doing code refactoring.
-	- Introducing IOperation interface and NormalItem class to manage the most common scenario.
+- Before touching main business logic, analysing the code by writing unit tests. 
+	(Build a safety net, make sure tests have 100% code coverage of the main business logic)
+- Based on unit tests, start doing code refactoring.
+	- Introducing IOperation interface and NormalItem class to manage the most common scenario. (taking the parts out, rerun corresponding tests)
 	- Other speical classes are derived from NormalItem, override UpdateQuality method to meet the requirments. 
 - Add logic to validate user input. (Quality is between 0 and 50, Name can't be empty)
 - Add one more level of abstraction by introducing AbstractItem class. 
+- Remove code duplication, move common parts of logic (ex. UpdateSellIn..etc) into AbstractItem class. (Rerun all tests, make sure it stays in Green)
+- Add app.config to allow easy adjustment to Quality range. (Set QualityMin=0, QualityMax=50)
 
 
 ## Todo:
 - Logging?
+- ItemFactory?
 
 
 # Gilded Rose Refactoring Kata

@@ -1,4 +1,6 @@
-﻿namespace GildedRoseInn
+﻿using System;
+
+namespace GildedRoseInn
 {
     public sealed class SulfurasItem : AbstractItem
     {
@@ -12,9 +14,22 @@
           - (Quality==80, SellIn==0)
               */
 
-        public override void UpdateQuality()
+
+        protected override void UpdateSellIn()
         {
-            //Both values stay the same, do nothing. 
+            //do nothing.
         }
+
+        protected override void UpdateQuality()
+        {
+            //do nothing.
+        }
+
+        protected override void CheckQualityRange()
+        {
+            //Quality == 80
+            //do nothing == no check. 
+        }
+
     }
 }

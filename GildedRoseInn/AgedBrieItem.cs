@@ -6,28 +6,13 @@
         {
         }
 
-        /*- "Aged Brie" actually increases in Quality the older it gets (SellIn>0?Quality++:Quality+=2)
-          - Just for clarification, an item can never have its Quality increase above 50, (Quality<=50)
-          - The Quality of an item is never more than 50 (Quality<=50)
-              */
+        /*
+         * - "Aged Brie" actually increases in Quality the older it gets (SellIn>0?Quality++:Quality+=2)          
+         */
 
-        public override void UpdateQuality()
+        protected override void UpdateQuality()
         {
-            SellIn = SellIn - 1;
-
-            if (SellIn < 0)
-            {
-                Quality = Quality + 2;
-            }
-            else
-            {
-                Quality = Quality + 1;
-            }
-
-            if (Quality > 50)
-            {
-                Quality = 50;
-            }
+            Quality = SellIn < 0 ? Quality + 2 : Quality + 1;
         }
     }
 }

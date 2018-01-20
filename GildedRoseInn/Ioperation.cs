@@ -3,6 +3,6 @@ namespace GildedRoseInn
 {
     public interface IOperation
     {
-        void UpdateQuality();
+        void Update();
     }
 }

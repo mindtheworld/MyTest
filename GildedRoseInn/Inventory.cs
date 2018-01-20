@@ -18,7 +18,7 @@ namespace GildedRoseInn
             {
                 Console.WriteLine("Before:\t"+ currentItem);
 
-                currentItem.UpdateQuality();
+                currentItem.Update();
 
                 Console.WriteLine("After:\t" + currentItem);
             }
