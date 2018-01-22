@@ -5,13 +5,23 @@ namespace GildedRoseInn.Items
 {
     public abstract class AbstractItem : Item, IOperation
     {
+        #region Private Properties
+
         private int QualityMin { get; }
 
         private int QualityMax { get; }
 
+        #endregion
+
+        #region Protected Properties
+
         protected int DefaultQualityModifier { get; }
 
         protected bool HasSellInPassed => SellIn < 0;
+
+        #endregion
+
+        #region Protected Constructor
 
         protected AbstractItem(string name, int sellIn, int quality, bool isSpeical = false)
         {
@@ -36,6 +46,10 @@ namespace GildedRoseInn.Items
             SellIn = sellIn;
             Quality = quality;
         }
+
+        #endregion
+
+        #region Protected Methods
 
         protected virtual void UpdateSellIn()
         {
@@ -62,6 +76,9 @@ namespace GildedRoseInn.Items
             }
         }
 
+        #endregion
+
+        #region Public Methods
 
         public void Update()
         {
@@ -76,5 +93,7 @@ namespace GildedRoseInn.Items
         {
             return $"Name: [{this.Name}], SellIn: [{this.SellIn}], Quality: [{this.Quality}]";
         }
+
+        #endregion
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace GildedRoseInn
+﻿namespace GildedRoseInn
 {
     public interface IOperation
     {

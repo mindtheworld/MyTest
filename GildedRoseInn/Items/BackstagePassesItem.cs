@@ -2,10 +2,14 @@
 {
     public sealed class BackstagePassesItem : AbstractItem
     {
+        #region Public Constructor
+
         public BackstagePassesItem(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn,
             quality)
         {
         }
+
+        #endregion
 
 
         /*- "Backstage passes", like aged brie, increases in Quality as it's SellIn value approaches; (Quality++)
@@ -13,6 +17,8 @@
           - and by 3 when there are 5 days or less (Quality+=3)
           - but Quality drops to 0 after the concert (SellIn<=0 => Quality=0)        
          */
+
+        #region Protected Override Method
 
         protected override void UpdateQuality()
         {
@@ -33,5 +39,7 @@
                 Quality = Quality + 1 * DefaultQualityModifier;
             }
         }
+
+        #endregion
     }
 }

@@ -12,7 +12,8 @@
 - Add one more level of abstraction by introducing AbstractItem class. 
 - Remove code duplication, move common parts of logic (ex. UpdateSellIn..etc) into AbstractItem class. (Rerun all tests, make sure it stays in Green)
 - Add app.config to allow easy adjustment to Quality range. (Set QualityMin=0, QualityMax=50)
-- Mionr changes to project file structure, moved DefaultQualityModifier into settings, added new property HasSellInPassed. 
+- Minor changes to project file structure, moved DefaultQualityModifier into settings, added new property HasSellInPassed. 
+- Icing on the cake, wrapped up code with Regions. 
 
 
 ## Todo:
