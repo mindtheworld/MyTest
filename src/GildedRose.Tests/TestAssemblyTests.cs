@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using GildedRose.Console;
 using GildedRoseInn;
+using GildedRoseInn.Items;
 using Xunit;
 using Xunit.Abstractions;
 

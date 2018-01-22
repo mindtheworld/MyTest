@@ -1,7 +1,7 @@
 ﻿using System;
 using GildedRoseInn.Properties;
 
-namespace GildedRoseInn
+namespace GildedRoseInn.Items
 {
     public abstract class AbstractItem : Item, IOperation
     {
@@ -9,10 +9,15 @@ namespace GildedRoseInn
 
         private int QualityMax { get; }
 
+        protected int DefaultQualityModifier { get; }
+
+        protected bool HasSellInPassed => SellIn < 0;
+
         protected AbstractItem(string name, int sellIn, int quality, bool isSpeical = false)
         {
             QualityMin = Settings.Default.QualityMin;
             QualityMax = Settings.Default.QualityMax;
+            DefaultQualityModifier = Settings.Default.DefaultQualityModifier;
 
             //Clean up this input before validation.
             var cleanedName = name.Trim();

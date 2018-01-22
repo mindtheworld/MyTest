@@ -40,5 +40,14 @@ namespace GildedRoseInn.Properties {
                 return ((int)(this["QualityMax"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int DefaultQualityModifier {
+            get {
+                return ((int)(this["DefaultQualityModifier"]));
+            }
+        }
     }
 }

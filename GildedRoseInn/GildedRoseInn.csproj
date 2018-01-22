@@ -42,20 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractItem.cs" />
-    <Compile Include="BackstagePassesItem.cs" />
-    <Compile Include="ConjuredItem.cs" />
+    <Compile Include="Items\AbstractItem.cs" />
+    <Compile Include="Items\BackstagePassesItem.cs" />
+    <Compile Include="Items\ConjuredItem.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SulfurasItem.cs" />
+    <Compile Include="Items\SulfurasItem.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="IOperation.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="AgedBrieItem.cs" />
-    <Compile Include="NormalItem.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\AgedBrieItem.cs" />
+    <Compile Include="Items\NormalItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

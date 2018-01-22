@@ -1,4 +1,4 @@
-﻿namespace GildedRoseInn
+﻿namespace GildedRoseInn.Items
 {
     public sealed class ConjuredItem : AbstractItem
     {
@@ -13,8 +13,7 @@
          */
         protected override void UpdateQuality()
         {
-            Quality = SellIn < 0 ? Quality - 4 : Quality - 2;
+            Quality = HasSellInPassed ? Quality - 4 * DefaultQualityModifier : Quality - 2 * DefaultQualityModifier;
         }
-       
     }
 }

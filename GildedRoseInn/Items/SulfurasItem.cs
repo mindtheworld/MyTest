@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GildedRoseInn
+﻿namespace GildedRoseInn.Items
 {
     public sealed class SulfurasItem : AbstractItem
     {

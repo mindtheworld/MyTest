@@ -1,4 +1,4 @@
-﻿namespace GildedRoseInn
+﻿namespace GildedRoseInn.Items
 {
     public sealed class BackstagePassesItem : AbstractItem
     {
@@ -16,21 +16,21 @@
 
         protected override void UpdateQuality()
         {
-            if (SellIn <= 0)
+            if (HasSellInPassed)
             {
                 Quality = 0;
             }
             else if (SellIn > 0 && SellIn <= 5)
             {
-                Quality = Quality + 3;
+                Quality = Quality + 3 * DefaultQualityModifier;
             }
             else if (SellIn > 5 && SellIn <= 10)
             {
-                Quality = Quality + 2;
+                Quality = Quality + 2 * DefaultQualityModifier;
             }
             else
             {
-                Quality = Quality + 1;
+                Quality = Quality + 1 * DefaultQualityModifier;
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace GildedRoseInn
+﻿namespace GildedRoseInn.Items
 {
     public sealed class AgedBrieItem : AbstractItem
     {
@@ -12,7 +12,7 @@
 
         protected override void UpdateQuality()
         {
-            Quality = SellIn < 0 ? Quality + 2 : Quality + 1;
+            Quality = HasSellInPassed ? Quality + 2 * DefaultQualityModifier : Quality + DefaultQualityModifier;
         }
     }
 }

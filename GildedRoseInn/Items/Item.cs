@@ -1,4 +1,4 @@
-﻿namespace GildedRoseInn
+﻿namespace GildedRoseInn.Items
 {
     public class Item
     {
