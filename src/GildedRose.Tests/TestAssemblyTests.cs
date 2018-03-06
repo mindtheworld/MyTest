@@ -11,21 +11,21 @@ namespace GildedRose.Tests
 {
     public class TestAssemblyTests
     {
-        [Fact]
-        public void TestTheTruth()
-        {
-            Assert.True(true);
-        }
+        //[Fact]
+        //public void TestTheTruth()
+        //{
+        //    Assert.True(true);
+        //}
 
         // check Xunit
-        [Theory]
-        [InlineData(4)]
-        [InlineData(5)]
-        [InlineData(6)]
-        public void TestTheTruthWithMoreValues(int value)
-        {
-            Assert.True(value > 0);
-        }
+        //[Theory]
+        //[InlineData(4)]
+        //[InlineData(5)]
+        //[InlineData(6)]
+        //public void TestTheTruthWithMoreValues(int value)
+        //{
+        //    Assert.True(value > 0);
+        //}
 
         //- At the end of each day our system lowers both values for every item
         // SellIn>0? => SellIn--, Quality--
